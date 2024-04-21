@@ -1,0 +1,36 @@
+TASK 7 (B):
+create a recursive function to find the nth element of a fibonacci sequence and store the first n elements in an 
+array 
+
+public class Fibonacci {
+
+    public static long fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
+    public static long[] fibonacciArray(int n) {
+        long[] result = new long[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = fibonacci(i);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int n = 10; // Change n to desired number of Fibonacci numbers
+        long[] fibonacciNumbers = fibonacciArray(n);
+
+        // Print the Fibonacci numbers
+        System.out.println("First " + n + " Fibonacci numbers:");
+        System.out.println(Arrays.toString(fibonacciNumbers));
+
+        // Find and print the nth Fibonacci number
+        int nth = 7; // Change nth to desired value
+        long nthFibonacci = fibonacci(nth);
+        System.out.println("The " + nth + "th Fibonacci number is: " + nthFibonacci);
+    }
+}
